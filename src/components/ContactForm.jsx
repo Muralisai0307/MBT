@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Clock, Lock, ArrowRight } from 'lucide-react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ 
@@ -23,26 +23,49 @@ const ContactForm = () => {
         <div className="grid lg:grid-cols-5 gap-16">
           
           <div className="lg:col-span-2 flex flex-col justify-center">
-            <h2 className="text-4xl font-extrabold text-[#374F6C] mb-6 tracking-tight">Ready to optimize your district's billing?</h2>
+            <div className="inline-block px-4 py-1.5 rounded-full bg-[#6CB2CD]/10 text-[#374F6C] font-bold text-sm mb-4 self-start">
+              Get Started
+            </div>
+            <h2 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">Ready to optimize your district's billing?</h2>
             <p className="text-lg text-slate-600 mb-10">
-              Schedule a personalized demo to see how MBT's OptiClaim and SIRAS platforms can streamline your workflows and maximize reimbursements.
+              Schedule a personalized demo to see how MBT's OptiClaim® and SIRAS platforms can streamline your workflows and maximize reimbursements.
             </p>
             
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#374F6C]/10 flex items-center justify-center text-[#374F6C]">
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-[#374F6C] shrink-0 mt-1">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900">Secure & Confidential</p>
+                  <p className="text-sm text-slate-500">Your information is strictly protected.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-[#374F6C] shrink-0 mt-1">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-900">Rapid Response</p>
+                  <p className="text-sm text-slate-500">Our team typically responds within 24 hours.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-[#374F6C] shrink-0 mt-1">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-500 uppercase">Email Us</p>
-                  <p className="font-semibold text-slate-900">contact@mbt4schools.com</p>
+                  <p className="font-bold text-slate-900">Direct Email</p>
+                  <a href="mailto:contact@mbt4schools.com" className="text-sm text-[#6CB2CD] hover:underline font-semibold">contact@mbt4schools.com</a>
                 </div>
               </div>
             </div>
           </div>
           
           <div className="lg:col-span-3">
-            <div className="bg-slate-50 rounded-2xl shadow-sm border border-slate-200 p-8 md:p-10">
+            <div className="bg-slate-50 rounded-2xl shadow-lg border border-slate-200 p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -54,19 +77,19 @@ const ContactForm = () => {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full px-4 py-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-colors outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-all outline-none bg-white shadow-sm"
                       placeholder="Jane Doe"
                     />
                   </div>
                   <div>
-                    <label htmlFor="organization" className="block text-sm font-bold text-slate-700 mb-2">School District / Organization</label>
+                    <label htmlFor="organization" className="block text-sm font-bold text-slate-700 mb-2">School District</label>
                     <input
                       type="text"
                       id="organization"
                       required
                       value={formData.organization}
                       onChange={(e) => setFormData({...formData, organization: e.target.value})}
-                      className="w-full px-4 py-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-colors outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-all outline-none bg-white shadow-sm"
                       placeholder="Visalia Unified"
                     />
                   </div>
@@ -81,7 +104,7 @@ const ContactForm = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full px-4 py-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-colors outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-all outline-none bg-white shadow-sm"
                       placeholder="jane@district.edu"
                     />
                   </div>
@@ -92,7 +115,7 @@ const ContactForm = () => {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full px-4 py-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-colors outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-all outline-none bg-white shadow-sm"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -106,20 +129,18 @@ const ContactForm = () => {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full px-4 py-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-colors outline-none resize-none bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-[#6CB2CD] focus:border-[#6CB2CD] transition-all outline-none resize-none bg-white shadow-sm"
                     placeholder="Tell us about your current billing challenges..."
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full bg-[#374F6C] hover:bg-[#2b3e55] text-white font-bold py-4 rounded-md transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg"
+                  className="w-full flex items-center justify-center gap-2 bg-[#374F6C] hover:bg-[#2b3e55] text-white font-bold py-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1 text-lg group"
                 >
                   Book Demo
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <p className="text-center text-xs text-slate-500 mt-4">
-                  By submitting this form, you agree to our privacy policy.
-                </p>
               </form>
             </div>
           </div>
